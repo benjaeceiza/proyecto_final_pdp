@@ -25,49 +25,58 @@ async function main() {
 
     switch (menu) {
       case 1:
+
+        //Opcion para ver tareas
         await verTareas(db);
         break;
       case 2:
 
+        //Opcion para buscar una tarea
         await buscarTarea(db);
         break;
 
       case 3:
+        //Opcion para agregar una tarea
         await agregarTarea(db);
         break;
 
       case 4:
 
+        //Opcion para eliminar una tarea
         await eliminarTarea(db);
         break;
       case 5:
 
+        //Opcion para ver estadisticas
         await estadisticas(db);
         break;
       case 6:
 
+        //Opcion para consultas logicas
         await consultasLogicas(db);
         break;
 
       case 0:
+
+        //Salir
         console.log("\n========================================");
         console.log(`            Vuelva pronto!   `);
         console.log("========================================\n");
         await pulsar();
-        closeInput();
         break;
-
-      default:
-
-        console.log("\n========================================");
-        console.log(`            Opcion invalida   `);
-        console.log("========================================\n");
-        await pulsar();
-        break;
-    }
-
-  }
-
+        
+        default:
+          
+          console.log("\n========================================");
+          console.log(`            Opcion invalida   `);
+          console.log("========================================\n");
+          await pulsar();
+          break;
+        }
+        
+      }
+      
+      closeInput();
 
 
 }

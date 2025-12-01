@@ -13,8 +13,10 @@ export async function buscarTarea(db: Database) {
 
     const tareaBuscada: string = await input(`> `)
 
+    //Se filtra la lista de tareas por el titulo que ingreso el usuario
     const tareasEncontradas: Tarea[] = db.tareas.filtrarTareaPorTitulo(tareaBuscada);
 
+    //Controla si se encontro la tarea o no.
     if (tareasEncontradas.length == 0) {
         console.log("\n========================================");
         console.log(`            Titulo invalido   `);
@@ -24,13 +26,16 @@ export async function buscarTarea(db: Database) {
     }
 
 
+    //Si la encuentra
     console.clear();
     console.log("\n========================================");
     console.log(`           Tareas encontradas: `);
     console.log("========================================\n");
+
+    //Se muestra el listado de tareas encontradas
     console.log(db.tareas.toString(tareasEncontradas));
 
-
+    //Se pregutna si quiere ver el detalle
     console.log("\n=======================================================");
     console.log("Ingresa el numero de la tarea para ver su informacion!");
     console.log("Ingresa 0 para volver.");
@@ -38,7 +43,7 @@ export async function buscarTarea(db: Database) {
 
     const tareaElegida: number = parseInt(await input(`> `));
 
-
+    //Controla que haya ingresado un valor valido
     if (tareaElegida > tareasEncontradas.length || tareaElegida < 0 || isNaN(tareaElegida)) {
         console.log("\n========================================");
         console.log(`            Opcion invalida   `);
@@ -47,10 +52,12 @@ export async function buscarTarea(db: Database) {
         return;
     }
 
+    //si el valor es 0, se vuelve al menu principal
     if (tareaElegida == 0) {
         return;
     }
-
+  
+    //vista de detalle de la tarea
     await detalleTarea(tareaElegida, tareasEncontradas,db);
 
 

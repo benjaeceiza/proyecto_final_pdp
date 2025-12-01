@@ -20,31 +20,43 @@ export async function verTareas(db: Database) {
 
     switch (opcion) {
         case 1:
+
+            //Ver todas las tareas
             titulo = "Todas las tareas";
             listaFiltrada = db.tareas.getAll();
             break;
 
         case 2:
+
+            //Ver tareas pendientes         
             titulo = "Pendientes";
             listaFiltrada = db.tareas.filtrarByEstado("Pendiente");
             break;
 
         case 3:
+
+            //Ver tareas en curso
             titulo = "En curso";
             listaFiltrada = db.tareas.filtrarByEstado("En curso");
             break;
 
         case 4:
+
+            //Ver tareas terminadas
             titulo = "Terminadas";
             listaFiltrada = db.tareas.filtrarByEstado("Terminada");
             break;
 
         case 5:
+
+            //Ver tareas canceladas
             titulo = "Canceladas";
             listaFiltrada = db.tareas.filtrarByEstado("Cancelada");
             break;
 
         case 0:
+
+            //Menu principal
             return;
 
         default:
@@ -59,12 +71,14 @@ export async function verTareas(db: Database) {
     console.log(`     LISTADO: ${titulo}`);
     console.log("========================================\n");
 
+    //Si no hay tareas para mostrar
     if (listaFiltrada.length === 0) {
-        console.log("(No hay tareas para mostrar en esta lista)");
+        console.log("(No hay tareas para mostrar)");
         await pulsar();
         return;
     } else {
 
+        //Imprimimos la lista de tareas
         console.log(db.tareas.toString(listaFiltrada));
 
     }
@@ -76,9 +90,11 @@ export async function verTareas(db: Database) {
     console.log("Ingresa 0 para volver.");
 
 
+    // Donde se guarda la posicion de la tarea que el usuario eligio.
     const tareaElegida: number = parseInt(await input(`> `));
 
 
+    // Control
     if (tareaElegida > listaFiltrada.length || tareaElegida < 0 || isNaN(tareaElegida)) {
         console.log("\n========================================");
         console.log(`            Opcion invalida   `);
@@ -86,11 +102,13 @@ export async function verTareas(db: Database) {
         await pulsar();
         return;
     }
-
+    
+    // Si es 0 volvemos menu principal
     if (tareaElegida == 0) {
         return;
     }
-
+      
+    //Vista del detalle de la tarea.
     await detalleTarea(tareaElegida, listaFiltrada, db);
 
 }

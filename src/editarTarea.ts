@@ -14,28 +14,43 @@ export async function editarTarea(tarea: Tarea, db: Database) {
     console.log("Ingresa espacio si quieres borrar el valor\n");
 
 
+    //Pide el titulo
     const tituloPrev: string = await input(`Titulo: `);
+
+    //Verifica el titulo
     const titulo: string = validarTituloEdicion(tituloPrev, tarea.titulo);
 
+    //Pide la descripcion
     const descripcionPrev: string = await input(`Descripción: `);
+
+    //Verifica la descripcion
     const descripcion: string = validarDescripcionEdicion(descripcionPrev, tarea.descripcion);
 
-
+    //Pide el estado
     const estadoPrev: string = await input(`Estado: [1] Pendiente [2] En Curso [3] Terminada [4] Cancelada\n`);
+
+    //Verifica el estado
     const estado: string = validarEstadoEdicion(estadoPrev, tarea.estado);
 
-
+    //Pide la dificultad
     const dificultadPrev: string = await input(`Dificultad: [1] Facil [2] Intermedia [3] Dificil\n`);
+
+    //Verifica la dificultad
     const dificultad: string = validarDificultadEdicion(dificultadPrev, tarea.dificultad);
 
+    //Pide el tipo de prioridad
     const prioridadPrev: string = await input(`Prioridad: [1] Baja [2] Media [3] Aata\n`);
-    const prioridad = validarPrioridadEditar(prioridadPrev,tarea.prioridad);
 
+    //Verifica la prioridad
+    const prioridad = validarPrioridadEditar(prioridadPrev, tarea.prioridad);
+
+    //Genera una nueva fecha de ultima edicion
     const ultimaEdicion: Date = new Date();
 
-    const tareaEditada: Tarea = new Tarea(tarea.id, titulo, descripcion, estado, tarea.creacion, ultimaEdicion, tarea.vencimiento, dificultad, true,prioridad);
+    //Instancia una nueva tarea
+    const tareaEditada: Tarea = new Tarea(tarea.id, titulo, descripcion, estado, tarea.creacion, ultimaEdicion, tarea.vencimiento, dificultad, true, prioridad);
 
-
+    //La subimos a la base de datos y retorna un booleano
     const isUpdated: boolean = await db.tareas.actualizarTarea(tareaEditada);
 
     if (isUpdated) {

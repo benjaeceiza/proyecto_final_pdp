@@ -10,6 +10,7 @@ export async function agregarTarea(db: Database) {
     console.log("\n========================================");
     console.log(`       Estás agregando una tarea   `);
     console.log("========================================\n");
+    
 
     const tituloPrev: string = await input(`Titulo: `);
     const titulo = validarTitulo(tituloPrev);
