@@ -1,4 +1,11 @@
 
+
+/**
+ * Valida que el titulo que ingreso no sea nulo
+ * @param {string} titulo - Titulo de la tarea 
+ * @returns {string} 
+ */
+
 export function validarTitulo(titulo: string): string {
 
     if (titulo.trim() === "") {
@@ -7,6 +14,13 @@ export function validarTitulo(titulo: string): string {
 
     return titulo;
 }
+
+/**
+ * Valida si el usuario cambio, borro o mantuvo el titulo de la tarea.
+ * @param {string} titulo - Titulo nuevo de la tarea 
+ * @param {string} tituloOriginal - Titulo anteriror de la tarea 
+ * @returns {string} 
+ */
 
 export function validarTituloEdicion(titulo: string, tituloOriginal:string): string {
 
@@ -21,6 +35,12 @@ export function validarTituloEdicion(titulo: string, tituloOriginal:string): str
 }
 
 
+/**
+ * Valida que la descripcion que ingreso no sea nula
+ * @param {string} descripcion - Titulo de la tarea 
+ * @returns {string} 
+ */
+
 export function validarDescripcion(descripcion: string): string {
 
     if (descripcion.trim() === "") {
@@ -29,6 +49,14 @@ export function validarDescripcion(descripcion: string): string {
 
     return descripcion;
 }
+
+/**
+ * Valida si el usuario cambio, borro o mantuvo la descripcion de la tarea.
+ * @param {string} descripcion - descripcion nueva de la tarea 
+ * @param {string} descripcionOriginal - descripcion anterior de la tarea 
+ * @returns {string} 
+ */
+
 export function validarDescripcionEdicion(descripcion: string, descripcionOriginal:string): string {
 
     if (descripcion === "") {
@@ -41,6 +69,13 @@ export function validarDescripcionEdicion(descripcion: string, descripcionOrigin
     return descripcion;
 }
 
+
+/**
+ * Valida que el valor ingresado sea un valor valido
+ * @param {number} estado - valor del estado de  la tarea 
+ * @returns {string} 
+ */
+
 export function validarEstado(estado: number):string {
    
  if(estado == 1) return "Pendiente";
@@ -52,6 +87,14 @@ export function validarEstado(estado: number):string {
  
  return "Pendiente"
 }
+
+
+/**
+ * Valida si el usuario cambio, borro o mantuvo el estado de la tarea.
+ * @param {string} estado - estado nuevo de la tarea 
+ * @param {string} estadoOriginal - estado anterior de la tarea 
+ * @returns {string} 
+ */
 export function validarEstadoEdicion(estado: string, estadoOriginal:string):string {
    
  if(estado == "") return estadoOriginal;
@@ -65,6 +108,11 @@ export function validarEstadoEdicion(estado: string, estadoOriginal:string):stri
  return estadoOriginal;
 }
 
+/**
+ * Valida que el valor ingresado sea un valor valido
+ * @param {number} dificultad - valor de la dificultad de  la tarea 
+ * @returns {string} 
+ */
 
 export function validarDificultad(dificultad: number):string {
    
@@ -74,6 +122,14 @@ export function validarDificultad(dificultad: number):string {
  console.log("Opcion invalida, Valor asignado: ⭐\n");
  return "⭐"
 }
+
+/**
+ * Valida si el usuario cambio, borro o mantuvo la dificultad de la tarea.
+ * @param {string} dificultad - dificultad nueva de la tarea 
+ * @param {string} dificultadOriginal - dificultad anterior de la tarea 
+ * @returns {string} 
+ */
+
 export function validarDificultadEdicion(dificultad: string, dificultadOriginal:string):string {
    
  if(dificultad == "") return dificultadOriginal;
@@ -86,6 +142,11 @@ export function validarDificultadEdicion(dificultad: string, dificultadOriginal:
  return dificultadOriginal;
 }
 
+/**
+ * Valida que el valor ingresado sea un valor valido
+ * @param {string} prioridad - valor de la prioridad de  la tarea 
+ * @returns {string} 
+ */
 
 export function validarPrioridad(prioridad: string):string {
    
@@ -99,6 +160,12 @@ export function validarPrioridad(prioridad: string):string {
  return "⭐"
 }
 
+/**
+ * Valida si el usuario cambio, borro o mantuvo la prioridad de la tarea.
+ * @param {string} prioridad - prioridad nueva de la tarea 
+ * @param {string} prioridadOriginal - prioridad anterior de la tarea 
+ * @returns {string} 
+ */
 export function validarPrioridadEditar(prioridad: string, prioridadOriginal:string):string {
    
  if(prioridad == "") return prioridadOriginal;
@@ -112,10 +179,10 @@ export function validarPrioridadEditar(prioridad: string, prioridadOriginal:stri
  return prioridadOriginal;
 }
 
-
-
-
-
+/**
+ * Crea una nueva fecha de vencimiento 
+ * @returns {Date}
+ */
 
 export function crearVencimiento():Date{
     

@@ -46,6 +46,7 @@ export class Tarea {
             "\nDificultad: " + this.dificultad +
             "\nPrioridad: " + this.prioridad +
             "\nCreacion: " + this.creacion.toLocaleDateString() +
-            "\nVencimiento: " + this.vencimiento.toLocaleDateString()
+            "\nVencimiento: " + this.vencimiento.toLocaleDateString()+
+            "\nUltimaEdicion: " + this.ultimaEdicion.toLocaleDateString()
     }
 }

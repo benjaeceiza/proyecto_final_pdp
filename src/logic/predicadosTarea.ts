@@ -22,3 +22,4 @@ export const estaVencida = (t: Tarea): boolean => {
 
   return fecha < hoy;
 };
+

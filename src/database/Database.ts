@@ -5,7 +5,10 @@ export class Database {
 
   constructor() {
     this.tareas = new Store();
+    
   }
+
+
 
 }
 

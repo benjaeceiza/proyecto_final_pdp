@@ -1,5 +1,5 @@
 
-import { borrarTarea, editarTarea, insertarTarea, obtenerTareas, obtenerTareasActivas } from "../database/firestore.js";
+import { borrarTarea, editarTarea, insertarTarea, obtenerTareasActivas } from "../database/firestore.js";
 import { tareasPrioridadAlta, tareasVencidas } from "../logic/consultasTarea.js";
 import { Tarea } from "../models/Tarea.js";
 
@@ -149,7 +149,8 @@ export class Store {
      * @returns Un objeto con las cantidades de tarea por cada estado
      */
 
-    public totalTareasPorEstado(tareas: Tarea[]) {
+    public totalTareasPorEstado(tareas: Tarea[]): {pendientes: number, enCurso: number, terminadas: number, canceladas: number}
+    {
         const pendientes: number = tareas.filter(t => t.estado === "Pendiente").length;
         const enCurso: number = tareas.filter(t => t.estado === "En Curso").length;
         const terminadas: number = tareas.filter(t => t.estado === "Terminada").length;
