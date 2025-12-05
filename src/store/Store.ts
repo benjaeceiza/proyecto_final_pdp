@@ -40,8 +40,7 @@ export class Store {
             return false;
         }
 
-        tarea.id = id;
-        this.items.push(tarea);
+        this.items = await obtenerTareasActivas();
 
         return true;
     }
@@ -149,8 +148,7 @@ export class Store {
      * @returns Un objeto con las cantidades de tarea por cada estado
      */
 
-    public totalTareasPorEstado(tareas: Tarea[]): {pendientes: number, enCurso: number, terminadas: number, canceladas: number}
-    {
+    public totalTareasPorEstado(tareas: Tarea[]): { pendientes: number, enCurso: number, terminadas: number, canceladas: number } {
         const pendientes: number = tareas.filter(t => t.estado === "Pendiente").length;
         const enCurso: number = tareas.filter(t => t.estado === "En Curso").length;
         const terminadas: number = tareas.filter(t => t.estado === "Terminada").length;
@@ -192,17 +190,6 @@ export class Store {
      * @returns {Tarea[]} Listado de tareas
      */
 
-    public obtenerTareasPrioridadAlta(): Tarea[] {
-        return tareasPrioridadAlta(this.items);
-    }
 
-    /**
-     * Obtiene una array con las tareas vencidas
-     * @returns {Tarea[]} Listado de tareas
-     */
-
-    public obtenerTareasVencidas(): Tarea[] {
-        return tareasVencidas(this.items);
-    }
 
 }

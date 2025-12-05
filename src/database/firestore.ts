@@ -65,8 +65,8 @@ export const borrarTarea = async (id: string) => {
 
 // Insertar
 export const insertarTarea = async (tarea: Tarea) => {
-    const { id, ...resto } = tarea; // sacamos id porque firestore genera uno nuevo
-    const ref = await addDoc(collection(db, "tareas"), resto);
+    const { id, ...data } = tarea; // sacamos id porque firestore genera uno nuevo
+    const ref = await addDoc(collection(db, "tareas"), data);
     return ref.id;
 };
 

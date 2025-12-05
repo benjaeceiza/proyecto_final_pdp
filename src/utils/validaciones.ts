@@ -22,7 +22,7 @@ export function validarTitulo(titulo: string): string {
  * @returns {string} 
  */
 
-export function validarTituloEdicion(titulo: string, tituloOriginal:string): string {
+export function validarTituloEdicion(titulo: string, tituloOriginal: string): string {
 
     if (titulo === "") {
         return tituloOriginal;
@@ -57,7 +57,7 @@ export function validarDescripcion(descripcion: string): string {
  * @returns {string} 
  */
 
-export function validarDescripcionEdicion(descripcion: string, descripcionOriginal:string): string {
+export function validarDescripcionEdicion(descripcion: string, descripcionOriginal: string): string {
 
     if (descripcion === "") {
         return descripcionOriginal;
@@ -76,16 +76,16 @@ export function validarDescripcionEdicion(descripcion: string, descripcionOrigin
  * @returns {string} 
  */
 
-export function validarEstado(estado: number):string {
-   
- if(estado == 1) return "Pendiente";
- if(estado == 2) return "En Curso";
- if(estado == 3) return "Terminada";
- if(estado == 4) return "Cancelada";
+export function validarEstado(estado: number): string {
 
- console.log("Opcion invalida, Valor asignado: PENDIENTE\n");
- 
- return "Pendiente"
+    if (estado == 1) return "Pendiente";
+    if (estado == 2) return "En Curso";
+    if (estado == 3) return "Terminada";
+    if (estado == 4) return "Cancelada";
+
+    console.log("Opcion invalida, Valor asignado: PENDIENTE\n");
+
+    return "Pendiente"
 }
 
 
@@ -95,17 +95,17 @@ export function validarEstado(estado: number):string {
  * @param {string} estadoOriginal - estado anterior de la tarea 
  * @returns {string} 
  */
-export function validarEstadoEdicion(estado: string, estadoOriginal:string):string {
-   
- if(estado == "") return estadoOriginal;
- if(estado == " ") return "Pendiente";
- if(estado == "1") return "Pendiente";
- if(estado == "2") return "En Curso";
- if(estado == "3") return "Terminada";
- if(estado == "4") return "Cancelada";
+export function validarEstadoEdicion(estado: string, estadoOriginal: string): string {
 
- console.log("Opcion invalida\n");
- return estadoOriginal;
+    if (estado == "") return estadoOriginal;
+    if (estado == " ") return "Pendiente";
+    if (estado == "1") return "Pendiente";
+    if (estado == "2") return "En Curso";
+    if (estado == "3") return "Terminada";
+    if (estado == "4") return "Cancelada";
+
+    console.log("Opcion invalida\n");
+    return estadoOriginal;
 }
 
 /**
@@ -114,13 +114,13 @@ export function validarEstadoEdicion(estado: string, estadoOriginal:string):stri
  * @returns {string} 
  */
 
-export function validarDificultad(dificultad: number):string {
-   
- if(dificultad == 1) return "⭐";
- if(dificultad == 2) return "⭐⭐";
- if(dificultad == 3) return "⭐⭐⭐";
- console.log("Opcion invalida, Valor asignado: ⭐\n");
- return "⭐"
+export function validarDificultad(dificultad: number): string {
+
+    if (dificultad == 1) return "⭐";
+    if (dificultad == 2) return "⭐⭐";
+    if (dificultad == 3) return "⭐⭐⭐";
+    console.log("Opcion invalida, Valor asignado: ⭐\n");
+    return "⭐"
 }
 
 /**
@@ -130,16 +130,16 @@ export function validarDificultad(dificultad: number):string {
  * @returns {string} 
  */
 
-export function validarDificultadEdicion(dificultad: string, dificultadOriginal:string):string {
-   
- if(dificultad == "") return dificultadOriginal;
- if(dificultad == " ") return "⭐";
- if(dificultad == "1") return "⭐";
- if(dificultad == "2") return "⭐⭐";
- if(dificultad == "3") return "⭐⭐⭐";
- 
- console.log("Opcion invalida\n");
- return dificultadOriginal;
+export function validarDificultadEdicion(dificultad: string, dificultadOriginal: string): string {
+
+    if (dificultad == "") return dificultadOriginal;
+    if (dificultad == " ") return "⭐";
+    if (dificultad == "1") return "⭐";
+    if (dificultad == "2") return "⭐⭐";
+    if (dificultad == "3") return "⭐⭐⭐";
+
+    console.log("Opcion invalida\n");
+    return dificultadOriginal;
 }
 
 /**
@@ -148,16 +148,16 @@ export function validarDificultadEdicion(dificultad: string, dificultadOriginal:
  * @returns {string} 
  */
 
-export function validarPrioridad(prioridad: string):string {
-   
- if(prioridad.trim() == "") return "Baja";
+export function validarPrioridad(prioridad: string): string {
 
- if(prioridad == "1") return "Baja";
- if(prioridad == "2") return "Media";
- if(prioridad == "3") return "Alta";
- 
- console.log("Opcion invalida, Valor asignado: Baja\n");
- return "⭐"
+    if (prioridad.trim() == "") return "Baja";
+
+    if (prioridad == "1") return "Baja";
+    if (prioridad == "2") return "Media";
+    if (prioridad == "3") return "Alta";
+
+    console.log("Opcion invalida, Valor asignado: Baja\n");
+    return "⭐"
 }
 
 /**
@@ -166,17 +166,17 @@ export function validarPrioridad(prioridad: string):string {
  * @param {string} prioridadOriginal - prioridad anterior de la tarea 
  * @returns {string} 
  */
-export function validarPrioridadEditar(prioridad: string, prioridadOriginal:string):string {
-   
- if(prioridad == "") return prioridadOriginal;
- if(prioridad == " ") return "Baja";
+export function validarPrioridadEditar(prioridad: string, prioridadOriginal: string): string {
 
- if(prioridad == "1") return "Baja";
- if(prioridad == "2") return "Media";
- if(prioridad == "3") return "Alta";
- 
- console.log("Opcion invalida\n");
- return prioridadOriginal;
+    if (prioridad == "") return prioridadOriginal;
+    if (prioridad == " ") return "Baja";
+
+    if (prioridad == "1") return "Baja";
+    if (prioridad == "2") return "Media";
+    if (prioridad == "3") return "Alta";
+
+    console.log("Opcion invalida\n");
+    return prioridadOriginal;
 }
 
 /**
@@ -184,8 +184,8 @@ export function validarPrioridadEditar(prioridad: string, prioridadOriginal:stri
  * @returns {Date}
  */
 
-export function crearVencimiento():Date{
-    
+export function crearVencimiento(): Date {
+
     const vencimiento: Date = new Date();
     const diaActual = vencimiento.getDate();
     const nuevoDia = diaActual + 10;

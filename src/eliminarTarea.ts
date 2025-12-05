@@ -58,7 +58,7 @@ export async function eliminarTarea(db: Database) {
     if (confirmar == 1) {
 
         //Elimina la tarea y retorna un booleano si se realizo con exito o no.
-        const eliminada = await db.tareas.eliminarTarea(listaTareas[tareaElegida - 1].id);
+        const eliminada:boolean = await db.tareas.eliminarTarea(listaTareas[tareaElegida - 1].id);
 
         if (eliminada) {
             console.clear();
@@ -71,7 +71,7 @@ export async function eliminarTarea(db: Database) {
         } else {
             console.clear();
             console.log("\n========================================");
-            console.log(`        Error al eliminar tareaw`);
+            console.log(`        Error al eliminar la tarea`);
             console.log("========================================\n");
             await pulsar();
 

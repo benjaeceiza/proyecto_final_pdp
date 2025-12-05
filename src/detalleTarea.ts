@@ -13,7 +13,7 @@ export async function detalleTarea(tareaElegida: number, listaFiltrada: Tarea[],
 
     // Consulta al usuario si quiere editar la tarea
     console.log("\n======================================");
-    console.log("Se desas editar la tarea ingresa E");
+    console.log("Se deseas editar la tarea ingresa E");
     console.log("Para volver ingresa 0");
 
     let opcion: string = await input(`> `);
